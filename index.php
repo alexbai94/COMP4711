@@ -13,6 +13,7 @@ and open the template in the editor.
 <?php
     include('Student.php');
 
+    //adds first student
     $students = array();
     $first = new Student();
     $first->surname = "Doe";
@@ -23,7 +24,8 @@ and open the template in the editor.
     $first->add_grade(75);
     $first->add_grade(55);
     $students['j123'] = $first;
-
+    
+    //adds second student
     $second = new Student();
     $second->surname = "Einstein";
     $second->first_name = "Albert";
@@ -34,7 +36,21 @@ and open the template in the editor.
     $second->add_grade(80);
     $second->add_grade(50);
     $students['a456'] = $second;
-
+    
+    //adds third student
+    $third = new Student();
+    $third->surname = "Parry";
+    $third->first_name = "Jim";
+    $third->add_email('work','jim_parry@bcit.ca');
+    $third->add_grade(85);
+    $third->add_grade(85);
+    $third->add_grade(85);
+    $students['j696'] = $third;
+    
+    //sorts students
+    ksort($students); // one of the many sort functions
+    
+    //prints the student information
     foreach($students as $student)
         echo $student->toString();
     
